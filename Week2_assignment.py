@@ -26,10 +26,22 @@ class PythonOrgSearch(unittest.TestCase):
         self.driver.find_element_by_xpath('/html/body/div[1]/div/div/div/div/div/a').click()
         # Till login
 
-        time.sleep(10)
 
 
-    """def test_verify_todays_date_and_timesheet_Date(self): # Task 2 from Assignment
+    """def verify_next_button_disabled(self):# Task 4 (Verify the next button is disabled from todays date)
+        time.sleep(5)
+        self.driver.implicitly_wait(10)
+        self.driver.find_element_by_xpath("//span[contains(text(),'TimeSheet') and @class='ng-scope']").click()
+        time.sleep(5)
+        hiway_prev_but = self.driver.find_element_by_xpath("//span[contains(text(),'prev')]/parent::button")
+        hiway_next_button = self.driver.find_element_by_xpath("//span[contains(text(),'next')]/parent::button")
+        print("##############")
+        time.sleep(5)
+        print("Is Next Button enabled for current date -", hiway_next_button.is_enabled())
+        print("Is Prev button is enabled for any date ", hiway_prev_but.is_enabled())
+        time.sleep(2)"""
+
+    """def test_verify_todays_date_and_timesheet_Date(self): # Task 2 from Assignment(Verify the time sheet page has loaded into todays date by default)
         self.driver.implicitly_wait(10)
         self.driver.find_element_by_xpath("//span[contains(text(),'TimeSheet') and @class='ng-scope']").click()
         hiway_date = self.driver.find_element_by_xpath("//span[ @class='mobile-timesheet-date ng-binding']")
